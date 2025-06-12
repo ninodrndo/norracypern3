@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Norra Cypern Fastigheter - Investera i Solen | Svenska Kontakter</title>
+<meta name="description" content="Upptäck Norra Cyperns bästa fastigheter. Låga priser, hög avkastning. Din svenska kontaktperson hjälper dig hela vägen.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+    .font-serif { font-family: 'Playfair Display', serif; }
+    .font-sans { font-family: 'Inter', sans-serif; }
+    
+    .hero-bg {
+        background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    
+    .luxury-bg {
+        background-image: linear-gradient(135deg, rgba(184, 134, 11, 0.9), rgba(146, 64, 14, 0.9)), url('sunset.png');
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .mediterranean-bg {
+        background-image: url('images/tjej_med_hatt_v1.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    
+    .climate-card-bg {
+        background-image: url('images/hero_cypern_solnedgang_panorama.png');
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .value-card-bg {
+        background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .lifestyle-card-bg {
+        background-image: url('images/image-livestyle.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .smooth-scroll {
+        scroll-behavior: smooth;
+    }
+    
+    .property-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .property-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    
+    .property-card:hover .property-image {
+        transform: scale(1.05);
+    }
+    
+    .property-image {
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .luxury-text {
+        background: linear-gradient(135deg, #b8860b, #daa520);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .glass-effect {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .search-container {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .overlay-card {
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .mediterranean-overlay {
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(3px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .info-overlay {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, #b8860b, #daa520);
+        transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #daa520, #b8860b);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(184, 134, 11, 0.3);
+    }
+    
+    .section-padding {
+        padding: 120px 0;
+    }
+    
+    .header-blur {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .stat-highlight {
+        color: #f59e0b;
+        font-weight: 600;
+    }
+
+    /* Language Switcher Styles */
+    .language-switcher {
+        position: relative;
+        display: inline-block;
+    }
+
+    .language-current {
+        display: flex;
+        align-items: center;
+        padding: 8px 12px;
+        background: transparent;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        color: #374151;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .language-current:hover {
+        background: rgba(0, 0, 0, 0.05);
+        border-color: #d97706;
+    }
+
+    .language-flag {
+        width: 20px;
+        height: 15px;
+        margin-right: 8px;
+        border-radius: 2px;
+        object-fit: cover;
+    }
+
+    .language-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        min-width: 120px;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    .language-switcher:hover .language-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .language-option {
+        display: flex;
+        align-items: center;
+        padding: 10px 12px;
+        color: #374151;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: background-color 0.2s ease;
+    }
+
+    .language-option:hover {
+        background: #f3f4f6;
+    }
+
+    .language-option.active {
+        background: #fef3c7;
+        color: #d97706;
+    }
+
+    .language-chevron {
+        margin-left: 8px;
+        width: 12px;
+        height: 12px;
+        transition: transform 0.3s ease;
+    }
+
+    .language-switcher:hover .language-chevron {
+        transform: rotate(180deg);
+    }
+    
+    @media (max-width: 768px) {
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .language-switcher {
+            margin-top: 16px;
+        }
+        
+        .language-dropdown {
+            position: static;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            box-shadow: none;
+            border: none;
+            background: transparent;
+            display: none;
+        }
+        
+        .language-switcher.mobile-open .language-dropdown {
+            display: block;
+        }
+    }
+</style>
+</head>
+<body class="font-sans bg-white smooth-scroll">
+<!-- Elegant Header -->
+<header class="header-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <!-- Elegant Logo -->
+            <div class="flex items-center">
+                <div class="text-2xl font-serif text-gray-900 tracking-wide">
+                    NORRA CYPERN
+                    <span class="block text-xs tracking-[0.2em] text-amber-600 font-medium">INTERNATIONAL REAL ESTATE</span>
+                </div>
+            </div>
+
+            <!-- Refined Navigation -->
+            <nav class="hidden lg:flex items-center space-x-12">
+                <a href="#top" onclick="scrollToTop()" class="text-gray-700 hover:text-amber-600 font-medium text-sm tracking-wide transition-colors duration-300">Hem</a>
+                <a href="#om-norra-cypern" class="text-gray-700 hover:text-amber-600 font-medium text-sm tracking-wide transition-colors duration-300">Destinationen</a>
+                <a href="#varfor-investera" class="text-gray-700 hover:text-amber-600 font-medium text-sm tracking-wide transition-colors duration-300">Investera</a>
+                <a href="#till-salu" class="text-gray-700 hover:text-amber-600 font-medium text-sm tracking-wide transition-colors duration-300">Fastigheter</a>
+                <a href="#om-oss" class="text-gray-700 hover:text-amber-600 font-medium text-sm tracking-wide transition-colors duration-300">Om Oss</a>
+				<a href="services.html" class="text-amber-600 font-medium text-sm tracking-wide transition-colors duration-300">Tjänster</a>
+            </nav>
+
+            <!--    
+			<a href="tel:+46701234567" class="text-sm text-gray-600 hover:text-amber-600 transition-colors duration-300 tracking-wide">
+				+46 70-123 45 67
+			</a>
+			-->
+			<button onclick="scrollToContact()" class="btn-primary text-white px-8 py-3 rounded-sm font-medium text-sm tracking-wide mx-4">
+				Kontakt
+			</button>				
+				
+			<!-- Right Side -->
+            <div class="hidden lg:flex items-center space-x-6">
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <div class="language-current">
+                        <svg class="language-flag" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="20" height="15" fill="#006AA7"/>
+                            <rect x="6" width="3" height="15" fill="#FECC00"/>
+                            <rect y="6" width="20" height="3" fill="#FECC00"/>
+                        </svg>
+                        <span id="current-language">SV</span>
+                        <svg class="language-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    
+                    <div class="language-dropdown" id="language-dropdown">
+                        <a href="index.html" class="language-option active" data-lang="sv">
+                            <svg class="language-flag" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="15" fill="#006AA7"/>
+                                <rect x="6" width="3" height="15" fill="#FECC00"/>
+                                <rect y="6" width="20" height="3" fill="#FECC00"/>
+                            </svg>
+                            Svenska
+                        </a>
+                        <a href="index_en.html" class="language-option" data-lang="en">
+                            <svg class="language-flag" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="15" fill="#012169"/>
+                                <path d="M0 0L20 15M20 0L0 15" stroke="white" stroke-width="2"/>
+                                <path d="M0 0L20 15M20 0L0 15" stroke="#C8102E" stroke-width="1"/>
+                                <rect x="8" width="4" height="15" fill="white"/>
+                                <rect y="6" width="20" height="3" fill="white"/>
+                                <rect x="9" width="2" height="15" fill="#C8102E"/>
+                                <rect y="7" width="20" height="1" fill="#C8102E"/>
+                            </svg>
+                            English
+                        </a>
+                        <a href="index_de.html" class="language-option" data-lang="de">
+                            <svg class="language-flag" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="5" fill="#000000"/>
+                                <rect y="5" width="20" height="5" fill="#DD0000"/>
+                                <rect y="10" width="20" height="5" fill="#FFCE00"/>
+                            </svg>
+                            Deutsch
+                        </a>
+                    </div>
+                </div>
+
+				
+				
+				
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden p-2" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden pb-6">
+            <div class="flex flex-col space-y-4">
+                <a href="#top" onclick="scrollToTop()" class="text-gray-700 hover:text-amber-600 font-medium py-2 tracking-wide">Hem</a>
+                <a href="#om-norra-cypern" class="text-gray-700 hover:text-amber-600 font-medium py-2 tracking-wide">Destinationen</a>
+                <a href="#varfor-investera" class="text-gray-700 hover:text-amber-600 font-medium py-2 tracking-wide">Investera</a>
+                <a href="#till-salu" class="text-gray-700 hover:text-amber-600 font-medium py-2 tracking-wide">Fastigheter</a>
+                <a href="#om-oss" class="text-gray-700 hover:text-amber-600 font-medium py-2 tracking-wide">Om Oss</a>
+                
+                <!-- Language Switcher för mobil -->
+                <div class="language-switcher">
+                    <div class="language-current" onclick="toggleMobileLanguageMenu()">
+                        <svg class="language-flag" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="20" height="15" fill="#006AA7"/>
+                            <rect x="6" width="3" height="15" fill="#FECC00"/>
+                            <rect y="6" width="20" height="3" fill="#FECC00"/>
+                        </svg>
+                        <span id="current-language-mobile">SV</span>
+                        <svg class="language-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    
+                    <div class="language-dropdown">
+                        <a href="index.html" class="language-option active" data-lang="sv">
+                            <svg class="language-flag" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="15" fill="#006AA7"/>
+                                <rect x="6" width="3" height="15" fill="#FECC00"/>
+                                <rect y="6" width="20" height="3" fill="#FECC00"/>
+                            </svg>
+                            Svenska
+                        </a>
+                        <a href="index_en.html" class="language-option" data-lang="en">
+                            <svg class="language-flag" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="15" fill="#012169"/>
+                                <path d="M0 0L20 15M20 0L0 15" stroke="white" stroke-width="2"/>
+                                <path d="M0 0L20 15M20 0L0 15" stroke="#C8102E" stroke-width="1"/>
+                                <rect x="8" width="4" height="15" fill="white"/>
+                                <rect y="6" width="20" height="3" fill="white"/>
+                                <rect x="9" width="2" height="15" fill="#C8102E"/>
+                                <rect y="7" width="20" height="1" fill="#C8102E"/>
+                            </svg>
+                            English
+                        </a>
+                        <a href="index_de.html" class="language-option" data-lang="de">
+                            <svg class="language-flag" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="5" fill="#000000"/>
+                                <rect y="5" width="20" height="5" fill="#DD0000"/>
+                                <rect y="10" width="20" height="5" fill="#FFCE00"/>
+                            </svg>
+                            Deutsch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Sophisticated Hero Section -->
+<section id="hem" class="relative h-screen hero-bg">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
+    
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+        <!-- Refined Typography -->
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-light text-white mb-8 max-w-6xl leading-tight">
+            Investera i
+            <span class="block text-9xl font-serif italic luxury-text">Solen</span>
+        </h1>
+        
+        <p class="text-xl md:text-2xl text-white/90 mb-12 max-w-4xl font-light leading-relaxed">
+            Upptäck Norra Cyperns exklusiva fastigheter med oslagbara priser och hög avkastningspotential
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-6">
+            <button onclick="scrollToProperties()" class="btn-primary text-white px-10 py-4 rounded-sm font-medium text-lg tracking-wide">
+                Utforska Fastigheter
+            </button>
+            <button onclick="scrollToContact()" class="glass-effect text-white border border-white/30 px-10 py-4 rounded-sm font-medium text-lg tracking-wide hover:bg-white/20 transition-all duration-300">
+                Boka Konsultation
+            </button>
+        </div>
+    </div>
+
+    <!-- Elegant Property Navigation -->
+    <div class="absolute bottom-8 right-8 text-white hidden lg:block">
+        <div class="glass-effect p-4 rounded-sm">
+            <div class="flex items-center space-x-3 text-sm">
+                <span class="font-light">Lyxvilla med Pool, Kyrenia</span>
+                <button class="text-amber-300 hover:text-amber-200 transition-colors">→</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Where Luxury Lives Section -->
+<section class="relative h-screen luxury-bg">
+    <div class="relative z-10 flex items-center justify-center h-full">
+        <div class="text-center text-white px-8">
+            <h2 class="text-6xl md:text-8xl lg:text-9xl font-light mb-8 leading-tight">
+                kliv in i framtidens semesterliv
+                <span class="block font-serif italic">- Norra Cypern väntar</span>
+            </h2>
+            <p class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto font-light leading-relaxed">
+                Upplev den autentiska medelhavsstilen på Cyperns mest exklusiva fastigheter
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- NEW: Mediterranean Life Section -->
+<section class="relative h-screen mediterranean-bg">
+    <div class="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/20"></div>  
+    <div class="relative z-10 flex items-center justify-center h-full px-8 text-white">
+        <div class="mediterranean-overlay rounded-lg p-8 w-[90%] max-w-5xl mx-auto text-center">
+            <h2 class="text-6xl md:text-8xl lg:text-9xl font-light mb-6 leading-tight">
+                    where golden opportunity
+                    <span class="block font-serif italic">lives</span>
+            </h2>
+        </div>
+    </div>
+</section>
+
+<!-- Three Feature Cards Section -->
+<section id="om-norra-cypern" class="section-padding bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-20 fade-in">
+            <h2 class="text-5xl md:text-6xl font-light text-gray-900 mb-6 font-serif">Norra Cypern</h2>
+            <p class="text-xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed">
+                Medelhavets bäst bevarade hemlighet - en destination där lyx möter autenticitet
+            </p>
+        </div>
+
+        <div class="space-y-24">
+            <!-- Perfekt Klimat Card -->
+            <div class="fade-in">
+                <div class="relative h-[570px] climate-card-bg rounded-lg overflow-hidden shadow-2xl">
+                    <div class="absolute inset-0 flex items-center justify-center p-8">
+                        <div class="info-overlay rounded-lg p-8 w-[90%] md:w-[70%] lg:w-[60%] mx-auto">
+                            <div class="text-center mb-6">
+                                <div class="text-4xl mb-4">☀️</div>
+                                <h3 class="text-3xl font-serif mb-4 text-gray-900">Perfekt Klimat</h3>
+                                <p class="text-gray-700 mb-6 font-light leading-relaxed">
+                                    300+ soldagar per år med medeltemperatur 19°C. Milda vintrar och varma somrar skapar det perfekta året-runt-klimatet.
+                                </p>
+                            </div>
+                            
+                            <div class="grid grid-cols-3 gap-4 mb-6">
+                                <div class="text-center bg-white/50 p-3 rounded-lg">
+                                    <div class="text-2xl font-light stat-highlight mb-1">300+</div>
+                                    <div class="text-xs text-gray-600">Soldagar per år</div>
+                                </div>
+                                <div class="text-center bg-white/50 p-3 rounded-lg">
+                                    <div class="text-2xl font-light stat-highlight mb-1">19°C</div>
+                                    <div class="text-xs text-gray-600">Medeltemperatur Norra Cypern</div>
+									<div class="border-t border-amber-500 my-2 w-1/2 mx-auto"></div>
+									<div class="text-2xl font-light stat-highlight mb-1">7-8°C</div>
+                                    <div class="text-xs text-gray-600">Medeltemperatur Stockholm</div>
+                                </div>
+                                <div class="text-center bg-white/50 p-3 rounded-lg">
+                                    <div class="text-2xl font-light stat-highlight mb-1">Oct-Maj</div>
+                                    <div class="text-xs text-gray-600">Vinterbad möjligt</div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-2 text-sm text-gray-700">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-amber-600">•</span>
+                                    <span>Låg luftfuktighet för optimal komfort</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-amber-600">•</span>
+                                    <span>Konstant havsbris från Medelhavet</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-amber-600">•</span>
+                                    <span>Milda vintrar utan snö eller frost</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exceptionella Värden Card -->
+            <div class="fade-in">
+                <div class="relative h-[570px] value-card-bg rounded-lg overflow-hidden shadow-2xl">
+                    <div class="absolute inset-0 flex items-center justify-center p-8">
+                        <div class="info-overlay rounded-lg p-8 w-[90%] md:w-[70%] lg:w-[60%] mx-auto">
+                            <div class="text-center mb-6">
+                                <div class="text-4xl mb-4">💰</div>
+                                <h3 class="text-3xl font-serif mb-4 text-gray-900">Exceptionella Värden</h3>
+                                <p class="text-gray-700 mb-6 font-light leading-relaxed">
+                                    50-70% lägre priser än jämförbara destinationer i Medelhavet, med samma kvalitet och standard.
+                                </p>
+                            </div>
+                            
+                            <div class="space-y-3 mb-6">
+                                <div class="flex justify-between items-center bg-white/50 p-3 rounded-lg">
+                                    <span class="text-gray-700 font-medium">Norra Cypern:</span>
+                                    <span class="text-xl font-light stat-highlight">€1,200/kvm</span>
+                                </div>
+                                <div class="flex justify-between items-center bg-white/40 p-3 rounded-lg">
+                                    <span class="text-gray-600">Spanien:</span>
+                                    <span class="text-lg text-gray-600 line-through">€2,500/kvm</span>
+                                </div>
+                                <div class="flex justify-between items-center bg-white/40 p-3 rounded-lg">
+                                    <span class="text-gray-600">Grekland:</span>
+                                    <span class="text-lg text-gray-600 line-through">€2,200/kvm</span>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center bg-green-50/80 p-4 rounded-lg">
+                                <div class="text-3xl font-light text-green-600 mb-1">50-70%</div>
+                                <div class="text-sm text-gray-700 font-medium">Lägre priser än konkurrenterna</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exklusiv Livsstil Card -->
+            <div class="fade-in">
+                <div class="relative h-[570px] lifestyle-card-bg rounded-lg overflow-hidden shadow-2xl">
+                    <div class="absolute inset-0 flex items-center justify-end p-8">
+                        <div class="overlay-card rounded-lg p-8 w-[90%] md:w-[70%] lg:w-[60%] mx-auto md:mr-0">
+                            <div class="text-center mb-6">
+                                <div class="text-4xl mb-4">🏖️</div>
+                                <h3 class="text-3xl text-white font-serif mb-4">Exklusiv Livsstil</h3>
+                                <p class="text-white/90 mb-6 font-light leading-relaxed">
+                                    Kristallklart vatten, prisbelönta stränder och rik kulturhistoria i en autentisk medelhavsmiljö.
+                                </p>
+                            </div>
+                            
+                            <div class="grid grid-cols-3 gap-3 mb-6">
+                                <div class="text-center bg-white/10 p-3 rounded-lg">
+                                    <div class="text-2xl mb-1">🏆</div>
+                                    <div class="text-xs text-white/80">Prisbelönta stränder</div>
+                                </div>
+                                <div class="text-center bg-white/10 p-3 rounded-lg">
+                                    <div class="text-2xl mb-1">🏛️</div>
+                                    <div class="text-xs text-white/80">UNESCO-världsarv</div>
+                                </div>
+                                <div class="text-center bg-white/10 p-3 rounded-lg">
+                                    <div class="text-2xl mb-1">🍷</div>
+                                    <div class="text-xs text-white/80">Gourmet-restauranger</div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-2 text-sm text-white/90">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-amber-400">•</span>
+                                    <span>Kristallklart turkosblått vatten</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-amber-400">•</span>
+                                    <span>Rik historia med antika ruiner</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-amber-400">•</span>
+                                    <span>Autentisk medelhavsmiljö utan massturism</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Investment Section -->
+<section id="varfor-investera" class="section-padding">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div class="fade-in">
+                <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Utveckling och tillväxt" 
+                     class="rounded-sm shadow-2xl w-full h-[600px] object-cover">
+            </div>
+
+            <div class="space-y-12 fade-in">
+                <div>
+                    <h2 class="text-5xl font-light text-gray-900 mb-6 font-serif">Varför Investera Nu?</h2>
+                    <p class="text-xl text-gray-600 font-light leading-relaxed">
+                        Norra Cypern genomgår en historisk utveckling. Säkra din position i denna växande marknad.
+                    </p>
+                </div>
+
+                <div class="space-y-10">
+                    <div class="flex items-start space-x-6">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-serif mb-3">Snabb Marknadstillväxt</h3>
+                            <p class="text-gray-600 font-light leading-relaxed">Byggboom pågår med nya hotell, golfbanor och marina-projekt. Fastighetspriserna stiger 15-25% årligen.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-6">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-serif mb-3">Exceptionell Avkastning</h3>
+                            <p class="text-gray-600 font-light leading-relaxed">Uthyrning till turister ger 8-12% årlig avkastning. Många fastigheter är uthyrda året runt.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-6">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-serif mb-3">Trygg Process</h3>
+                            <p class="text-gray-600 font-light leading-relaxed">Din svenska kontaktperson guidar dig genom hela processen. Transparent och säker hantering.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Elegant Properties Section -->
+<section id="till-salu" class="section-padding bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-20 fade-in">
+            <h2 class="text-5xl md:text-6xl font-light text-gray-900 mb-6 font-serif">Utvalda Fastigheter</h2>
+            <p class="text-xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed">
+                Handplockade fastigheter med exceptionell kvalitet och avkastningspotential
+            </p>
+        </div>
+
+        <!-- Refined Filter -->
+        <div class="flex flex-wrap justify-center gap-6 mb-16 fade-in">
+            <button class="filter-btn active bg-amber-600 text-white px-8 py-3 rounded-sm font-medium tracking-wide transition-all duration-300" data-filter="all">
+                Alla Fastigheter
+            </button>
+            <button class="filter-btn bg-white text-gray-700 hover:bg-gray-100 px-8 py-3 rounded-sm font-medium tracking-wide transition-all duration-300 border border-gray-200" data-filter="apartment">
+                Lägenheter
+            </button>
+            <button class="filter-btn bg-white text-gray-700 hover:bg-gray-100 px-8 py-3 rounded-sm font-medium tracking-wide transition-all duration-300 border border-gray-200" data-filter="villa">
+                Villor
+            </button>
+            <button class="filter-btn bg-white text-gray-700 hover:bg-gray-100 px-8 py-3 rounded-sm font-medium tracking-wide transition-all duration-300 border border-gray-200" data-filter="beachfront">
+                Strandnära
+            </button>
+            <button class="filter-btn bg-white text-gray-700 hover:bg-gray-100 px-8 py-3 rounded-sm font-medium tracking-wide transition-all duration-300 border border-gray-200" data-filter="new">
+                Nyproduktion
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Property 1 -->
+            <div class="property-card bg-white rounded-sm overflow-hidden shadow-lg fade-in" data-category="villa beachfront new">
+                <div class="relative h-80 overflow-hidden">
+                    <img 
+                        src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                        alt="Lyxvilla med pool"
+                        class="property-image w-full h-full object-cover"
+                    />
+                    <div class="absolute top-6 right-6">
+                        <button class="bg-white/90 hover:bg-white p-3 rounded-full transition-colors shadow-lg">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="absolute top-6 left-6 flex flex-col gap-2">
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-sm text-sm font-medium">Nyproduktion</span>
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-sm text-sm font-medium">Strandnära</span>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        Kyrenia, Norra Cypern
+                    </div>
+                    <h3 class="text-2xl font-serif mb-3">Lyxvilla med Privat Pool</h3>
+                    <p class="text-gray-600 text-sm mb-6 font-light leading-relaxed">Modern arkitektur med panoramautsikt över Medelhavet. 200 meter till pristina sandstrand.</p>
+                    <div class="text-3xl font-light text-amber-600 mb-6">€285,000</div>
+                    <div class="flex items-center justify-between text-sm text-gray-600 mb-6">
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                            </svg>
+                            3 sovrum
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path>
+                            </svg>
+                            2 badrum
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-xs mr-1">📐</span>
+                            180 kvm
+                        </div>
+                    </div>
+					<a href="property10.html" class="w-full btn-primary text-white py-3 rounded-sm font-medium tracking-wide text-center block">
+						Visa Detaljer
+					</a>
+                </div>
+            </div>
+
+            <!-- Property 2 -->
+            <div class="property-card bg-white rounded-sm overflow-hidden shadow-lg fade-in" data-category="apartment beachfront">
+                <div class="relative h-80 overflow-hidden">
+                    <img 
+                        src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                        alt="Strandlägenhet"
+                        class="property-image w-full h-full object-cover"
+                    />
+                    <div class="absolute top-6 right-6">
+                        <button class="bg-white/90 hover:bg-white p-3 rounded-full transition-colors shadow-lg">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <span class="absolute top-6 left-6 bg-blue-600 text-white px-3 py-1 rounded-sm text-sm font-medium">Strandnära</span>
+                </div>
+                <div class="p-8">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        Famagusta, Norra Cypern
+                    </div>
+                    <h3 class="text-2xl font-serif mb-3">Strandlägenhet med Terrass</h3>
+                    <p class="text-gray-600 text-sm mb-6 font-light leading-relaxed">Rymlig lägenhet med stor terrass och direktvy över havet. Gemensam pool och gym.</p>
+                    <div class="text-3xl font-light text-amber-600 mb-6">€125,000</div>
+                    <div class="flex items-center justify-between text-sm text-gray-600 mb-6">
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                            </svg>
+                            2 sovrum
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path>
+                            </svg>
+                            1 badrum
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-xs mr-1">📐</span>
+                            95 kvm
+                        </div>
+                    </div>
+					<a href="property20.html" class="w-full btn-primary text-white py-3 rounded-sm font-medium tracking-wide text-center block">
+						Visa Detaljer
+					</a>
+                </div>
+            </div>
+
+            <!-- Property 3 -->
+            <div class="property-card bg-white rounded-sm overflow-hidden shadow-lg fade-in" data-category="apartment new">
+                <div class="relative h-80 overflow-hidden">
+                    <img 
+                        src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                        alt="Modern lägenhet"
+                        class="property-image w-full h-full object-cover"
+                    />
+                    <div class="absolute top-6 right-6">
+                        <button class="bg-white/90 hover:bg-white p-3 rounded-full transition-colors shadow-lg">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <span class="absolute top-6 left-6 bg-green-600 text-white px-3 py-1 rounded-sm text-sm font-medium">Nyproduktion</span>
+                </div>
+                <div class="p-8">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        Lefkoşa, Norra Cypern
+                    </div>
+                    <h3 class="text-2xl font-serif mb-3">Modern Stadslägenhet</h3>
+                    <p class="text-gray-600 text-sm mb-6 font-light leading-relaxed">Centralt belägen med närhet till shopping, restauranger och kulturella attraktioner.</p>
+                    <div class="text-3xl font-light text-amber-600 mb-6">€89,000</div>
+                    <div class="flex items-center justify-between text-sm text-gray-600 mb-6">
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                            </svg>
+                            1 sovrum
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path>
+                            </svg>
+                            1 badrum
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-xs mr-1">📐</span>
+                            65 kvm
+                        </div>
+                    </div>
+					<a href="property30.html" class="w-full btn-primary text-white py-3 rounded-sm font-medium tracking-wide text-center block">
+						Visa Detaljer
+					</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-16 fade-in">
+            <button onclick="scrollToContact()" class="border border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white px-10 py-4 rounded-sm font-medium tracking-wide transition-all duration-300">
+                Visa Alla Fastigheter
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Virtual Tours Section -->
+<section id="galleri" class="section-padding">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div class="fade-in">
+                <div class="relative rounded-sm overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Virtuell visning" 
+                         class="w-full h-[600px] object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                        <button class="glass-effect border border-white/30 text-white p-6 rounded-full hover:bg-white/20 transition-all duration-300">
+                            <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-10 fade-in">
+                <div>
+                    <h2 class="text-5xl font-light text-gray-900 mb-6 font-serif">Virtuella Upplevelser</h2>
+                    <p class="text-xl text-gray-600 font-light leading-relaxed mb-8">
+                        Utforska varje fastighet i detalj genom våra immersiva 360°-visningar och professionella dronefilmer.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="text-center p-6 bg-gray-50 rounded-sm">
+                        <div class="text-3xl font-light text-amber-600 mb-2">360°</div>
+                        <div class="text-sm text-gray-600 tracking-wide">Virtuella Rundturer</div>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-sm">
+                        <div class="text-3xl font-light text-amber-600 mb-2">4K</div>
+                        <div class="text-sm text-gray-600 tracking-wide">Dronefilmer</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <button onclick="scrollToContact()" class="btn-primary text-white px-8 py-4 rounded-sm font-medium tracking-wide">
+                        Boka Personlig Visning
+                    </button>
+                    <button class="border border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white px-8 py-4 rounded-sm font-medium tracking-wide transition-all duration-300">
+                        Ladda Ner Prospekt
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section id="om-oss" class="section-padding bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-20 fade-in">
+            <h2 class="text-5xl md:text-6xl font-light text-gray-900 mb-6 font-serif">Din Partner i Sverige</h2>
+            <p class="text-xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed">
+                Expertis, trygghet och personlig service genom hela din fastighetsresa
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div class="fade-in">
+                <img src="images/kontaktperson.jpg" 
+                     alt="Vårt team" 
+                     class="rounded-sm shadow-2xl w-full h-[600px] object-cover">
+            </div>
+
+            <div class="fade-in">
+                <h3 class="text-3xl font-serif mb-8">Trygghet & Expertis</h3>
+                <p class="text-xl text-gray-600 mb-10 font-light leading-relaxed">
+                    Vi är svenska fastighetsexperter med djup kunskap om Norra Cypern. 
+                    Genom vårt nära samarbete med lokala byggherrar erbjuder vi exklusiv tillgång 
+                    till de bästa objekten.
+                </p>
+
+                <div class="space-y-6 mb-12">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <span class="text-gray-700">Svensk kontaktperson under hela processen</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <span class="text-gray-700">Transparent process utan dolda kostnader</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <span class="text-gray-700">Komplett support: juridik, finansiering, uthyrning</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <span class="text-gray-700">Efterservice och fastighetsförvaltning</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-lg">
+                    <h4 class="font-serif text-xl mb-6">Kontakta Oss Direkt</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-amber-600">📞</span>
+                            <span class="text-gray-700">+46 70-123 45 67</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-amber-600">✉️</span>
+                            <span class="text-gray-700">info@norracypernfastigheter.se</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-amber-600">📍</span>
+                            <span class="text-gray-700">Stockholm, Sverige</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="section-padding">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-20 fade-in">
+            <h2 class="text-5xl md:text-6xl font-light text-gray-900 mb-6 font-serif">Vanliga Frågor</h2>
+            <p class="text-xl text-gray-600 font-light leading-relaxed">
+                Svar på de mest frekventa frågorna om fastighetsköp på Norra Cypern
+            </p>
+        </div>
+
+        <div class="space-y-6 fade-in">
+            <div class="faq-item bg-white rounded-sm shadow-lg">
+                <button class="faq-question w-full text-left p-8 font-serif text-xl hover:bg-gray-50 transition-colors duration-300" onclick="toggleFAQ(this)">
+                    Hur köper man bostad på Norra Cypern?
+                    <span class="faq-icon float-right text-amber-600">+</span>
+                </button>
+                <div class="faq-answer hidden p-8 pt-0 text-gray-600 font-light leading-relaxed">
+                    <p>Processen är enkel och säker. Vi hjälper dig med allt från besiktning till juridisk granskning. 
+                    Du behöver bara pass, och vi ordnar resten. Hela processen tar vanligtvis 4-6 veckor.</p>
+                </div>
+            </div>
+
+            <div class="faq-item bg-white rounded-sm shadow-lg">
+                <button class="faq-question w-full text-left p-8 font-serif text-xl hover:bg-gray-50 transition-colors duration-300" onclick="toggleFAQ(this)">
+                    Behöver man visum för att köpa fastighet?
+                    <span class="faq-icon float-right text-amber-600">+</span>
+                </button>
+                <div class="faq-answer hidden p-8 pt-0 text-gray-600 font-light leading-relaxed">
+                    <p>Nej, som svensk medborgare behöver du inget visum för att köpa fastighet på Norra Cypern. 
+                    Du kan också vistas på ön upp till 90 dagar utan visum.</p>
+                </div>
+            </div>
+
+            <div class="faq-item bg-white rounded-sm shadow-lg">
+                <button class="faq-question w-full text-left p-8 font-serif text-xl hover:bg-gray-50 transition-colors duration-300" onclick="toggleFAQ(this)">
+                    Hur fungerar äganderätten?
+                    <span class="faq-icon float-right text-amber-600">+</span>
+                </button>
+                <div class="faq-answer hidden p-8 pt-0 text-gray-600 font-light leading-relaxed">
+                    <p>Du får full äganderätt (freehold) till fastigheten. Äganderätten registreras i det nordcypriotiska fastighetsregistret 
+                    och du får en officiell ägandehandling (title deed).</p>
+                </div>
+            </div>
+
+            <div class="faq-item bg-white rounded-sm shadow-lg">
+                <button class="faq-question w-full text-left p-8 font-serif text-xl hover:bg-gray-50 transition-colors duration-300" onclick="toggleFAQ(this)">
+                    Vad kostar det att leva på Norra Cypern?
+                    <span class="faq-icon float-right text-amber-600">+</span>
+                </button>
+                <div class="faq-answer hidden p-8 pt-0 text-gray-600 font-light leading-relaxed">
+                    <p>Levnadskostnaderna är cirka 40-50% lägre än i Sverige. En middag på restaurang kostar 10-15€, 
+                    bensin cirka 1€/liter, och el/vatten för en lägenhet cirka 50-80€/månad.</p>
+                </div>
+            </div>
+
+            <div class="faq-item bg-white rounded-sm shadow-lg">
+                <button class="faq-question w-full text-left p-8 font-serif text-xl hover:bg-gray-50 transition-colors duration-300" onclick="toggleFAQ(this)">
+                    Kan man hyra ut sin fastighet?
+                    <span class="faq-icon float-right text-amber-600">+</span>
+                </button>
+                <div class="faq-answer hidden p-8 pt-0 text-gray-600 font-light leading-relaxed">
+                    <p>Ja, uthyrning är mycket populärt och lönsamt. Många fastigheter ger 8-12% årlig avkastning. 
+                    Vi hjälper dig med uthyrningshantering om du önskar.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="kontakt" class="section-padding bg-gray-900">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-20 fade-in">
+            <h2 class="text-5xl md:text-6xl font-light text-white mb-6 font-serif">Kontakta Oss</h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
+                Redo att ta nästa steg? Vi kontaktar dig inom 24 timmar.
+            </p>
+        </div>
+
+        <div class="bg-white rounded-sm shadow-2xl p-10 fade-in">
+            <form id="contact-form" class="space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-3 tracking-wide">Namn *</label>
+                        <input type="text" id="name" name="name" required 
+                               class="w-full px-4 py-4 border border-gray-300 rounded-sm focus:ring-amber-500 focus:border-amber-500 transition-colors">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-3 tracking-wide">E-post *</label>
+                        <input type="email" id="email" name="email" required 
+                               class="w-full px-4 py-4 border border-gray-300 rounded-sm focus:ring-amber-500 focus:border-amber-500 transition-colors">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-3 tracking-wide">Telefon</label>
+                        <input type="tel" id="phone" name="phone" 
+                               class="w-full px-4 py-4 border border-gray-300 rounded-sm focus:ring-amber-500 focus:border-amber-500 transition-colors">
+                    </div>
+                    <div>
+                        <label for="interest" class="block text-sm font-medium text-gray-700 mb-3 tracking-wide">Intresseområde</label>
+                        <select id="interest" name="interest" 
+                                class="w-full px-4 py-4 border border-gray-300 rounded-sm focus:ring-amber-500 focus:border-amber-500 transition-colors">
+                            <option value="">Välj...</option>
+                            <option value="apartment">Lägenheter</option>
+                            <option value="villa">Villor</option>
+                            <option value="investment">Investeringsobjekt</option>
+                            <option value="rental">Uthyrningsobjekt</option>
+                            <option value="general">Allmän information</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="budget" class="block text-sm font-medium text-gray-700 mb-3 tracking-wide">Budget (EUR)</label>
+                    <select id="budget" name="budget" 
+                            class="w-full px-4 py-4 border border-gray-300 rounded-sm focus:ring-amber-500 focus:border-amber-500 transition-colors">
+                        <option value="">Välj budget...</option>
+                        <option value="50000-100000">€50,000 - €100,000</option>
+                        <option value="100000-200000">€100,000 - €200,000</option>
+                        <option value="200000-300000">€200,000 - €300,000</option>
+                        <option value="300000+">€300,000+</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-3 tracking-wide">Meddelande</label>
+                    <textarea id="message" name="message" rows="5" 
+                              placeholder="Berätta om dina önskemål och frågor..."
+                              class="w-full px-4 py-4 border border-gray-300 rounded-sm focus:ring-amber-500 focus:border-amber-500 transition-colors"></textarea>
+                </div>
+
+                <div class="flex items-start space-x-3">
+                    <input type="checkbox" id="gdpr" name="gdpr" required 
+                           class="mt-1 h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-300 rounded">
+                    <label for="gdpr" class="text-sm text-gray-600 font-light leading-relaxed">
+                        Jag godkänner att mina uppgifter behandlas enligt 
+                        <a href="#" class="text-amber-600 hover:underline">sekretesspolicyn</a> *
+                    </label>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <button type="submit" 
+                            class="btn-primary text-white px-10 py-4 rounded-sm font-medium tracking-wide">
+                        Skicka Förfrågan
+                    </button>
+                    <button type="button" onclick="bookCall()" 
+                            class="border border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white px-10 py-4 rounded-sm font-medium tracking-wide transition-all duration-300">
+                        Boka Telefonsamtal
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Elegant Footer -->
+<footer class="bg-gray-900 text-white py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+                <div class="text-2xl font-serif mb-6 tracking-wide">
+                    NORRA CYPERN
+                    <span class="block text-xs tracking-[0.2em] text-amber-400 font-medium">INTERNATIONAL REAL ESTATE</span>
+                </div>
+                <p class="text-gray-400 mb-8 font-light leading-relaxed">Din väg till drömfastigheten på Norra Cypern</p>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="font-serif text-lg mb-4">Exklusiva Erbjudanden</h4>
+                    <div class="flex">
+                        <input type="email" placeholder="Din e-post" 
+                               class="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-l-sm text-white focus:outline-none focus:border-amber-500 transition-colors">
+                        <button class="btn-primary px-6 py-3 rounded-r-sm font-medium">
+                            Prenumerera
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="font-serif text-lg mb-6">Navigation</h4>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li><a href="#om-norra-cypern" class="hover:text-white transition-colors font-light">Om Norra Cypern</a></li>
+                    <li><a href="#varfor-investera" class="hover:text-white transition-colors font-light">Varför Investera</a></li>
+                    <li><a href="#till-salu" class="hover:text-white transition-colors font-light">Fastigheter Till Salu</a></li>
+                    <li><a href="#faq" class="hover:text-white transition-colors font-light">Vanliga Frågor</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-serif text-lg mb-6">Tjänster</h4>
+                 <ul class="space-y-3 text-sm text-gray-400">
+                    <li><a href="services.html#fastighetsköp" class="hover:text-white transition-colors font-light">Fastighetsköp</a></li>
+                    <li><a href="services.html#investeringsrådgivning" class="hover:text-white transition-colors font-light">Investeringsrådgivning</a></li>
+                    <li><a href="services.html#uthyrningshantering" class="hover:text-white transition-colors font-light">Uthyrningshantering</a></li>
+                    <li><a href="services.html#juridisk-support" class="hover:text-white transition-colors font-light">Juridisk Support</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-serif text-lg mb-6">Kontakt</h4>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex items-center space-x-2">
+                        <span class="text-amber-400">📞</span>
+                        <span>+46 70-123 45 67</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span class="text-amber-400">✉️</span>
+                        <span>info@norracypernfastigheter.se</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span class="text-amber-400">📍</span>
+                        <span>Stockholm, Sverige</span>
+                    </li>
+                </ul>
+                
+                <!-- Social Media -->
+                <div class="mt-8">
+                    <h5 class="font-serif mb-4">Följ Oss</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 mt-16 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <p class="font-light">&copy; 2024 Norra Cypern Fastigheter. Alla rättigheter förbehållna.</p>
+                <div class="flex space-x-8 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors font-light">Sekretesspolicy</a>
+                    <a href="#" class="hover:text-white transition-colors font-light">Användarvillkor</a>
+                    <a href="#kontakt" class="hover:text-white transition-colors font-light">Kontakt</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    }
+
+    // NEW: Function to scroll to top of page
+    function scrollToTop() {
+        window.scrollTo({ 
+            top: 0, 
+            behavior: 'smooth' 
+        });
+    }
+
+    // Smooth scrolling functions
+    function scrollToProperties() {
+        document.getElementById('till-salu').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function scrollToContact() {
+        document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Smooth scrolling for all anchor links (except #top)
+    document.querySelectorAll('a[href^="#"]:not([href="#top"])').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Property filter functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active state from all buttons
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('active', 'bg-amber-600', 'text-white');
+                b.classList.add('bg-white', 'text-gray-700');
+            });
+            
+            // Add active state to clicked button
+            this.classList.add('active', 'bg-amber-600', 'text-white');
+            this.classList.remove('bg-white', 'text-gray-700');
+            
+            const filter = this.getAttribute('data-filter');
+            const properties = document.querySelectorAll('.property-card');
+            
+            properties.forEach(property => {
+                if (filter === 'all') {
+                    property.style.display = 'block';
+                } else {
+                    const categories = property.getAttribute('data-category');
+                    if (categories && categories.includes(filter)) {
+                        property.style.display = 'block';
+                    } else {
+                        property.style.display = 'none';
+                    }
+                }
+            });
+        });
+    });
+
+    // FAQ toggle functionality
+    function toggleFAQ(element) {
+        const answer = element.nextElementSibling;
+        const icon = element.querySelector('.faq-icon');
+        
+        if (answer.classList.contains('hidden')) {
+            answer.classList.remove('hidden');
+            icon.textContent = '−';
+        } else {
+            answer.classList.add('hidden');
+            icon.textContent = '+';
+        }
+    }
+
+    // Contact form submission
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+        
+        // Simulate form submission
+        alert('Tack för din förfrågan! Vi kontaktar dig inom 24 timmar.');
+        
+        // Here you would send data to your server
+        console.log('Form data:', data);
+    });
+
+    function bookCall() {
+        alert('Du kommer att omdirigeras till vår bokningskalender...');
+        // Here you would open a booking calendar
+    }
+
+    // Language Switcher Functions
+    function initLanguageSwitcher() {
+        const currentPath = window.location.pathname;
+        const filename = currentPath.split('/').pop();
+        
+        let currentLang = 'sv'; // default
+        let currentLangText = 'SV';
+        
+        if (filename === 'index_en.html') {
+            currentLang = 'en';
+            currentLangText = 'EN';
+        } else if (filename === 'index_de.html') {
+            currentLang = 'de';
+            currentLangText = 'DE';
+        }
+        
+        // Update current language display
+        const currentLanguageElements = document.querySelectorAll('#current-language, #current-language-mobile');
+        currentLanguageElements.forEach(el => {
+            if (el) el.textContent = currentLangText;
+        });
+        
+        // Update active state in dropdown
+        document.querySelectorAll('.language-option').forEach(option => {
+            option.classList.remove('active');
+            if (option.getAttribute('data-lang') === currentLang) {
+                option.classList.add('active');
+            }
+        });
+        
+        // Update flag in current language display
+        updateCurrentFlag(currentLang);
+    }
+
+    function updateCurrentFlag(lang) {
+        const currentButtons = document.querySelectorAll('.language-current');
+        
+        currentButtons.forEach(currentButton => {
+            const flagSvg = currentButton.querySelector('.language-flag');
+            
+            if (lang === 'en') {
+                flagSvg.innerHTML = `
+                    <rect width="20" height="15" fill="#012169"/>
+                    <path d="M0 0L20 15M20 0L0 15" stroke="white" stroke-width="2"/>
+                    <path d="M0 0L20 15M20 0L0 15" stroke="#C8102E" stroke-width="1"/>
+                    <rect x="8" width="4" height="15" fill="white"/>
+                    <rect y="6" width="20" height="3" fill="white"/>
+                    <rect x="9" width="2" height="15" fill="#C8102E"/>
+                    <rect y="7" width="20" height="1" fill="#C8102E"/>
+                `;
+            } else if (lang === 'de') {
+                flagSvg.innerHTML = `
+                    <rect width="20" height="5" fill="#000000"/>
+                    <rect y="5" width="20" height="5" fill="#DD0000"/>
+                    <rect y="10" width="20" height="5" fill="#FFCE00"/>
+                `;
+            } else {
+                flagSvg.innerHTML = `
+                    <rect width="20" height="15" fill="#006AA7"/>
+                    <rect x="6" width="3" height="15" fill="#FECC00"/>
+                    <rect y="6" width="20" height="3" fill="#FECC00"/>
+                `;
+            }
+        });
+    }
+
+    // Mobile menu toggle for language switcher
+    function toggleMobileLanguageMenu() {
+        if (window.innerWidth <= 768) {
+            const switcher = document.querySelector('.language-switcher');
+            switcher.classList.toggle('mobile-open');
+        }
+    }
+
+    // Fade-in animation on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all fade-in elements
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Newsletter subscription
+    document.querySelector('footer input[type="email"]').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const email = this.value;
+            if (email) {
+                alert(`Tack! ${email} har lagts till i vårt nyhetsbrev.`);
+                this.value = '';
+            }
+        }
+    });
+
+    document.querySelector('footer button').addEventListener('click', function() {
+        const emailInput = document.querySelector('footer input[type="email"]');
+        const email = emailInput.value;
+        if (email) {
+            alert(`Tack! ${email} har lagts till i vårt nyhetsbrev.`);
+            emailInput.value = '';
+        }
+    });
+
+    // Add parallax effect to hero background
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero-bg');
+        if (hero) {
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+    });
+
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        initLanguageSwitcher();
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const switcher = document.querySelector('.language-switcher');
+        if (switcher && !switcher.contains(event.target)) {
+            switcher.classList.remove('mobile-open');
+        }
+    });
+</script>
+</body>
+</html>
